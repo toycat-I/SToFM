@@ -10,3 +10,4 @@ matplotlib==3.8.2
 rapids_singlecell==0.10.10
 cupy-cuda12x==13.3.0
 scipy==1.13.1
+geneformer==0.0.1

@@ -94,14 +94,14 @@ def get_hypernodes(nodes, features, alpha=0.2, device=-1, leiden_res=1.0): # nod
             sc.pp.neighbors(nodes_an, n_neighbors=10, use_rep='X')
             # sc.tl.leiden(nodes_an, flavor='igraph')
             resolution = 1.0
-                while(True):
-                    rsc.tl.leiden(nodes_an, resolution=resolution)
-                    if len(np.unique(nodes_an.obs['leiden'])) < 200:
-                        break
-                    resolution /= 2
+            while(True):
+                sc.tl.leiden(nodes_an, resolution=resolution)
+                if len(np.unique(nodes_an.obs['leiden'])) < 200:
+                    break
+                resolution /= 2
     else:
         sc.pp.neighbors(nodes_an, n_neighbors=10, use_rep='X')
-    # some bugs in rsc.tl.leiden? use scanpy.tl.leiden!
+    # some bugs in rsc.tl.leiden? use scanpy.tl.leiden
     sc.tl.leiden(nodes_an, flavor='igraph', resolution=leiden_res)
     cluster = nodes_an.obs['leiden'].to_numpy().astype(int)
     # for each cluster, get the hypernode
