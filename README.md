@@ -1,2 +1,2 @@
 # SToFM
-Code for "SToFM: a Multi-scale Foundation Model for Spatial Transcriptomics".
+Code for paper "SToFM: a Multi-scale Foundation Model for Spatial Transcriptomics".
